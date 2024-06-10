@@ -4,6 +4,8 @@
 [https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html)  
 [https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup](https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup)  
 
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
+
 ## Reference Example
 [https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html)  
 
@@ -11,7 +13,7 @@
  ```
 ./src/isaac_ros_common/scripts/run_dev.sh
  ```
-## Add the following packages....
+## Installations onto the Container....
 ### Install Nvblox From Debian...
  ```
 sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
@@ -47,10 +49,10 @@ sudo apt-get install lttng-modules-dkms
 sudo apt-get install liblttng-ust-dev  
  ```
 
+## Assemble the Workspace
+
 ### Isaac ROS repos...
  ```
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag.git  
