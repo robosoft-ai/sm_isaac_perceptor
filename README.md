@@ -98,6 +98,10 @@ ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shufflese
 colcon build --symlink-install   
 source workspaces/isaac_ros-dev/install/setup.bash  
  ```
+Reference command was
+ ```
+colcon build --symlink-install --packages-up-to nova_carter_bringup  
+ ```
 ## Launch Application
  ```
 source install/setup.bash   
