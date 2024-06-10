@@ -1,9 +1,9 @@
 # Workflow
 Starting point...
-[https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html)
-[https://nvidia-isaac-ros.github.io/concepts/docker_devenv/index.html#development-environment](https://nvidia-isaac-ros.github.io/concepts/docker_devenv/index.html#development-environment)
-[https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html)
-[https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup](https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup)
+[https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html)  
+[https://nvidia-isaac-ros.github.io/concepts/docker_devenv/index.html#development-environment](https://nvidia-isaac-ros.github.io/concepts/docker_devenv/index.html#development-environment)  
+[https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html)  
+[https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup](https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup)  
 
 ## Start the IsaacROSDev Container (from the workspace...)
 ./src/isaac_ros_common/scripts/run_dev.sh
@@ -11,27 +11,27 @@ Starting point...
 ## Add the following packages....
 
 ### Isaac ROS repos...
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git
-git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git  
+git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git  
 
-### Application Repos...
-git clone https://github.com/robosoft-ai/sm_isaac_perceptor_1.git
-git clone https://github.com/robosoft-ai/rrt_exploration.git
+### Application Repos...  
+git clone https://github.com/robosoft-ai/sm_isaac_perceptor_1.git  
+git clone https://github.com/robosoft-ai/rrt_exploration.git  
 
 ### SMACC Repos
-git clone https://github.com/robosoft-ai/SMACC2.git
-git clone https://github.com/rapyuta-robotics/UE_msgs.git
+git clone https://github.com/robosoft-ai/SMACC2.git  
+git clone https://github.com/rapyuta-robotics/UE_msgs.git  
 
-(Todo: remove ue_msgs dependencies!)
+(Todo: remove ue_msgs dependencies!)  
 
 ## Add key dependencies...
 
