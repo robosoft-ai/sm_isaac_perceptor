@@ -59,15 +59,15 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
 
 
 ### Install LTTng-UST...
-sudo apt-get install lttng-tools
-sudo apt-get install lttng-modules-dkms
-sudo apt-get install liblttng-ust-dev
+sudo apt-get install lttng-tools  
+sudo apt-get install lttng-modules-dkms  
+sudo apt-get install liblttng-ust-dev  
 
 ## Build Workspace
-colcon build --symlink-install 
-source workspaces/isaac_ros-dev/install/setup.bash
+colcon build --symlink-install   
+source workspaces/isaac_ros-dev/install/setup.bash  
 
 ## Launch Application
-source install/setup.bash 
+source install/setup.bash   
 ros2 launch sm_isaac_perceptor_1 sm_isaac_perceptor_1_launch.py 
 
