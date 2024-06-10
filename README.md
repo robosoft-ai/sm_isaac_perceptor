@@ -12,35 +12,6 @@
 ./src/isaac_ros_common/scripts/run_dev.sh
  ```
 ## Add the following packages....
-
-### Isaac ROS repos...
- ```
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git  
-git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git  
- ```
-### Application Repos...  
- ```
-git clone https://github.com/robosoft-ai/sm_isaac_perceptor_1.git  
-git clone https://github.com/robosoft-ai/rrt_exploration.git  
- ```
-### SMACC Repos
- ```
-git clone https://github.com/robosoft-ai/SMACC2.git  
-git clone https://github.com/rapyuta-robotics/UE_msgs.git  
- ```
-(Todo: remove ue_msgs dependencies!)  
-
-## Add key dependencies...
-
 ### Install Nvblox From Debian...
  ```
 sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
@@ -75,6 +46,51 @@ sudo apt-get install lttng-tools
 sudo apt-get install lttng-modules-dkms  
 sudo apt-get install liblttng-ust-dev  
  ```
+
+### Isaac ROS repos...
+ ```
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git  
+git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git  
+ ```
+### Application Repos...  
+ ```
+git clone https://github.com/robosoft-ai/sm_isaac_perceptor_1.git  
+git clone https://github.com/robosoft-ai/rrt_exploration.git  
+ ```
+### SMACC Repos
+ ```
+git clone https://github.com/robosoft-ai/SMACC2.git  
+git clone https://github.com/rapyuta-robotics/UE_msgs.git  
+ ```
+(Todo: remove ue_msgs dependencies!)  
+
+## Add key dependencies...
+ ```
+sudo apt update
+rosdep update
+rosdep install -i -r --from-paths ${ISAAC_ROS_WS}/src/nova_carter/nova_carter_bringup/ --rosdistro humble -y
+ ```
+ ```
+sudo apt-get install -y ros-humble-isaac-ros-peoplesemseg-models-install ros-humble-isaac-ros-ess-models-install
+source /opt/ros/humble/setup.bash
+```
+Install the required assets: (Takes a while)
+```   
+ros2 run isaac_ros_ess_models_install install_ess_models.sh --eula
+ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_vanilla.sh --eula
+ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shuffleseg.sh --eula
+ ```
+
+
 ## Build Workspace
  ```
 colcon build --symlink-install   
