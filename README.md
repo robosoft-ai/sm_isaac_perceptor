@@ -75,9 +75,7 @@ git clone https://github.com/robosoft-ai/rrt_exploration.git
 ### SMACC Repos
  ```
 git clone https://github.com/robosoft-ai/SMACC2.git  
-git clone https://github.com/rapyuta-robotics/UE_msgs.git  
  ```
-(Todo: remove ue_msgs dependencies!)  
 
 ## Add key dependencies...
  ```
@@ -99,7 +97,9 @@ ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shufflese
 
 ## Build Workspace
  ```
-colcon build --symlink-install   
+colcon build --symlink-install
+ ```
+ ```
 source workspaces/isaac_ros-dev/install/setup.bash  
  ```
 
