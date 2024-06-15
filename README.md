@@ -11,8 +11,12 @@ git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
 
 ## Start the IsaacROSDev Container (from the workspace...)
  ```
-./src/isaac_ros_common/scripts/run_dev.sh
+./src/isaac_ros_common/scripts/run_dev.sh  -d  ~/workspace/humble_ws/
  ```
+or this one from inside workspace/src/isaac_ros_common/scripts. The -d command explicity sets the workspace to workspaces/isaac_ros-dev inside the IsaacROSDev container.
+```
+./run_dev.sh -d  ~/workspace/humble_ws/
+```
 ## Installations onto the Container....
 ### Install Nvblox From Debian...
  ```
