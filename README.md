@@ -99,30 +99,6 @@ git clone https://github.com/robosoft-ai/sm_isaac_perceptor_1.git
 git clone https://github.com/robosoft-ai/rrt_exploration.git  
  ```
 
-## Add key dependencies...
- ```
-sudo apt update
-rosdep update
-rosdep install -i -r --from-paths ${ISAAC_ROS_WS}/src/nova_carter/nova_carter_bringup/ --rosdistro humble -y
- ```
- ```
-sudo apt-get install -y ros-humble-isaac-ros-peoplesemseg-models-install ros-humble-isaac-ros-ess-models-install
-source /opt/ros/humble/setup.bash
-```
-Install the required assets into isaac_ros_assets: (Takes a while)
-
-Set env variable so you don't have to manually accept every EULA...  
-```   
-export ISAAC_ROS_ACCEPT_EULA=1
- ```
-Run the shell scripts  
-```   
-ros2 run isaac_ros_ess_models_install install_ess_models.sh
-ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_vanilla.sh
-ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shuffleseg.sh
- ```
-
-
 ## Build Workspace
 ```
 source /opt/ros/humble/setup.bash
@@ -134,13 +110,13 @@ rosdep install --ignore-src --from-paths src -y -r
  ```
 colcon build --symlink-install
  ```
- ```
-source workspaces/isaac_ros-dev/install/setup.bash  
- ```
 
 ## Launch Application
+Source the workspace...  
  ```
-source install/setup.bash   
+source install/setup.bash
+ ```
+ ```
 ros2 launch sm_isaac_perceptor_1 sm_isaac_perceptor_1_launch.py 
  ```
 Reference Application Launch Command...
