@@ -25,8 +25,8 @@ sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
 rosdep update && \
 rosdep install isaac_ros_nvblox
  ```
-After this command, the following packages are installed in the container...
-NITROS   (apt list --installed | grep nitros)
+After this command, the following packages are installed in the container...  
+NITROS   (apt list --installed | grep nitros)  
 ros-humble-custom-nitros-image/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
 ros-humble-isaac-ros-managed-nitros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
 ros-humble-isaac-ros-nitros-april-tag-detection-array-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
