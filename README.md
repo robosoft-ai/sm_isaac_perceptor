@@ -32,48 +32,26 @@ sudo apt-get install lttng-tools
 sudo apt-get install lttng-modules-dkms  
 sudo apt-get install liblttng-ust-dev  
  ```
-
-## Add key dependencies...
+### Install Jetson Stats
  ```
-sudo apt update
+sudo apt-get install -y ros-humble-isaac-ros-jetson-stats
+ ```
+### Use rosdep to install Nova Carter bringup dependencies...
+ ```
 rosdep update
 rosdep install -i -r --from-paths ${ISAAC_ROS_WS}/src/nova_carter/nova_carter_bringup/ --rosdistro humble -y
  ```
-
 ### Install Nvblox From Debian...
  ```
 sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
 rosdep update && \
 rosdep install isaac_ros_nvblox
  ```
-After this command, the following packages are installed in the container...  
-NITROS   (apt list --installed | grep nitros)  
-ros-humble-custom-nitros-image/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-managed-nitros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-nitros-april-tag-detection-array-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-nitros-camera-info-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-nitros-image-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-nitros-interfaces/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-nitros-tensor-list-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-isaac-ros-nitros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-
-Nvblox (apt list --installed | grep nvblox)  
-ros-humble-isaac-ros-nvblox/jammy,now 3.0.1-0jammy amd64 [installed]  
-ros-humble-nvblox-examples-bringup/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-image-padding/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-msgs/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-nav2/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-ros-common/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-ros-python-utils/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-ros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-ros-humble-nvblox-rviz-plugin/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
-
-
 #### Download nvblox assets
  ```
 sudo apt-get install -y curl tar
  ```
-Then do this at some point...
+Set variables for isaac_ros_assets workspace folder...
  ```
 NGC_ORG="nvidia"
 NGC_TEAM="isaac"
@@ -83,16 +61,27 @@ NGC_FILENAME="quickstart.tar.gz"
 
 REQ_URL="https://api.ngc.nvidia.com/v2/resources/$NGC_ORG/$NGC_TEAM/$NGC_RESOURCE/versions/$NGC_VERSION/files/$NGC_FILENAME"
  ```
-Maybe this, can't remember, might have skipped it.
+Create isaac_ros_assets workspace folder...
  ```
 mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     curl -LO --request GET "${REQ_URL}" && \
     tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
-### Install Jetson Stats
+#### Download the isacc_ros_ess and isaac_ros_peoplesemsegnet models into isaac_ros_assets (takes a while)
+Source setup.bash since the packages are already installed...   
+```
+source /opt/ros/humble/setup.bash
+```
+Set env variable so you don't have to manually accept every EULA...  
+```   
+export ISAAC_ROS_ACCEPT_EULA=1
  ```
-sudo apt-get install -y ros-humble-isaac-ros-jetson-stats
+Run the shell scripts  
+```   
+ros2 run isaac_ros_ess_models_install install_ess_models.sh
+ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_vanilla.sh
+ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shuffleseg.sh
  ```
 
 ## Assemble the Workspace
