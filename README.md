@@ -10,7 +10,8 @@
 ## Let's Get Started
 We begin by cloning isaac_ros_common to the src folder of our local workspace. My local workspace is ~/workspace/humble_ws
  ```
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
+git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git  
  ```
 ## Start the IsaacROSDev Container (from the workspace...)
  ```
@@ -30,6 +31,13 @@ sudo apt-get update
 sudo apt-get install lttng-tools  
 sudo apt-get install lttng-modules-dkms  
 sudo apt-get install liblttng-ust-dev  
+ ```
+
+## Add key dependencies...
+ ```
+sudo apt update
+rosdep update
+rosdep install -i -r --from-paths ${ISAAC_ROS_WS}/src/nova_carter/nova_carter_bringup/ --rosdistro humble -y
  ```
 
 ### Install Nvblox From Debian...
@@ -87,13 +95,9 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
 
 ### Isaac ROS repos...
  ```
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_apriltag.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_visual_slam.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git  
 git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git  
  ```
