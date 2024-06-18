@@ -48,7 +48,7 @@ sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
 rosdep update && \
 rosdep install isaac_ros_nvblox
  ```
-#### Download nvblox assets
+#### Download the nvblox assets
  ```
 sudo apt-get install -y curl tar
  ```
@@ -69,7 +69,7 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
-#### Download the isacc_ros_ess and isaac_ros_peoplesemsegnet models into isaac_ros_assets (takes a while)
+#### Download the isacc_ros_ess and isaac_ros_peoplesemsegnet models into the isaac_ros_assets folder (takes a while)
 Source setup.bash since the packages are already installed...   
 ```
 source /opt/ros/humble/setup.bash
