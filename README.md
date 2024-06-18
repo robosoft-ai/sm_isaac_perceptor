@@ -4,11 +4,14 @@
 [https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html](https://nvidia-isaac-ros.github.io/getting_started/dev_env_setup.html)  
 [https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup](https://nvidia-isaac-ros.github.io/robots/nova_carter/getting_started.html#nova-carter-dev-setup)  
 
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
-
 ## Reference Example
 [https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html)  
 
+## Let's Get Started
+We begin by cloning isaac_ros_common to the src folder of our local workspace. My local workspace is ~/workspace/humble_ws
+ ```
+git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git  
+ ```
 ## Start the IsaacROSDev Container (from the workspace...)
  ```
 ./src/isaac_ros_common/scripts/run_dev.sh  -d  ~/workspace/humble_ws/
