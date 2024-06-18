@@ -119,11 +119,17 @@ rosdep install -i -r --from-paths ${ISAAC_ROS_WS}/src/nova_carter/nova_carter_br
 sudo apt-get install -y ros-humble-isaac-ros-peoplesemseg-models-install ros-humble-isaac-ros-ess-models-install
 source /opt/ros/humble/setup.bash
 ```
-Install the required assets: (Takes a while)
+Install the required assets into isaac_ros_assets: (Takes a while)
+
+Set env variable so you don't have to manually accept every EULA...  
 ```   
-ros2 run isaac_ros_ess_models_install install_ess_models.sh --eula
-ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_vanilla.sh --eula
-ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shuffleseg.sh --eula
+export ISAAC_ROS_ACCEPT_EULA=1
+ ```
+Run the shell scripts  
+```   
+ros2 run isaac_ros_ess_models_install install_ess_models.sh
+ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_vanilla.sh
+ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shuffleseg.sh
  ```
 
 
