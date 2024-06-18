@@ -18,6 +18,7 @@ git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git
 ./src/isaac_ros_common/scripts/run_dev.sh  -d  ~/workspace/humble_ws/
  ```
 Then run ls in the terminal to confirm that isaac_ros-dev is set to your host host workspace.    
+  
 Alternatively, you can run this one from inside workspace/src/isaac_ros_common/scripts. The -d command explicity sets the workspace to workspaces/isaac_ros-dev inside the IsaacROSDev container.
 ```
 ./run_dev.sh -d  ~/workspace/humble_ws/
