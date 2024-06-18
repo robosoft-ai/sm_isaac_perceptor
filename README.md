@@ -101,7 +101,6 @@ sudo apt-get install -y ros-humble-isaac-ros-jetson-stats
  ```
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
  ```
 ### Application Repos...  
  ```
