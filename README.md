@@ -90,6 +90,10 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
+### Install Jetson Stats
+ ```
+sudo apt-get install -y ros-humble-isaac-ros-jetson-stats
+ ```
 
 ## Assemble the Workspace
 
@@ -98,7 +102,6 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git  
  ```
 ### Application Repos...  
  ```
