@@ -24,14 +24,17 @@ Alternatively, you can run this one from inside workspace/src/isaac_ros_common/s
 ./run_dev.sh -d  ~/workspace/humble_ws/
 ```
 ## Installations onto the Container....
-
+First, lets get updated... 
+ ```
+sudo apt-get update  
+rosdep update
+ ```
 ### Install LTTng-UST...
 We'll need this for SMACC later...  
  ```
-sudo apt-get update  
-sudo apt-get install lttng-tools  
-sudo apt-get install lttng-modules-dkms  
-sudo apt-get install liblttng-ust-dev  
+sudo apt-get install -y lttng-tools  
+sudo apt-get install -y lttng-modules-dkms  
+sudo apt-get install -y liblttng-ust-dev  
  ```
 ### Install Jetson Stats
  ```
@@ -39,13 +42,11 @@ sudo apt-get install -y ros-humble-isaac-ros-jetson-stats
  ```
 ### Use rosdep to install Nova Carter bringup dependencies...
  ```
-rosdep update
 rosdep install -i -r --from-paths ${ISAAC_ROS_WS}/src/nova_carter/nova_carter_bringup/ --rosdistro humble -y
  ```
 ### Install Nvblox From Debian...
  ```
 sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
-rosdep update && \
 rosdep install isaac_ros_nvblox
  ```
 #### Download the nvblox assets
