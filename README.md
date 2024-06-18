@@ -99,7 +99,6 @@ git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_depth.git  
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_jetson.git  
-git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git  
  ```
 ### Application Repos...  
  ```
