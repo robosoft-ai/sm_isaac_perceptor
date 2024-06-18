@@ -25,6 +25,29 @@ sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
 rosdep update && \
 rosdep install isaac_ros_nvblox
  ```
+After this command, the following packages are installed in the container...
+NITROS   (apt list --installed | grep nitros)
+ros-humble-custom-nitros-image/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-managed-nitros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-nitros-april-tag-detection-array-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-nitros-camera-info-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-nitros-image-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-nitros-interfaces/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-nitros-tensor-list-type/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-isaac-ros-nitros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+
+Nvblox (apt list --installed | grep nvblox)  
+ros-humble-isaac-ros-nvblox/jammy,now 3.0.1-0jammy amd64 [installed]  
+ros-humble-nvblox-examples-bringup/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-image-padding/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-msgs/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-nav2/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-ros-common/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-ros-python-utils/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-ros/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+ros-humble-nvblox-rviz-plugin/jammy,now 3.0.1-0jammy amd64 [installed,automatic]  
+
+
 #### Download nvblox assets
  ```
 sudo apt-get install -y curl tar
