@@ -124,6 +124,13 @@ ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shufflese
 
 
 ## Build Workspace
+```
+source /opt/ros/humble/setup.bash
+```
+```
+rosdep update
+rosdep install --ignore-src --from-paths src -y -r
+ ```
  ```
 colcon build --symlink-install
  ```
