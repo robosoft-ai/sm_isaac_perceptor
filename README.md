@@ -8,7 +8,7 @@
 [https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html](https://nvidia-isaac-ros.github.io/reference_workflows/isaac_perceptor/run_perceptor_in_sim.html)  
 
 ## Let's Get Started
-We begin by cloning isaac_ros_common to the src folder of our local workspace. My local workspace is ~/workspace/humble_ws
+We begin by cloning isaac_ros_common and nova_carter repos to the src folder of our local workspace. My local workspace is ~/workspace/humble_ws
  ```
 git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
 git clone https://github.com/NVIDIA-ISAAC-ROS/nova_carter.git  
