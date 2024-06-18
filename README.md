@@ -22,6 +22,16 @@ or this one from inside workspace/src/isaac_ros_common/scripts. The -d command e
 ./run_dev.sh -d  ~/workspace/humble_ws/
 ```
 ## Installations onto the Container....
+
+### Install LTTng-UST...
+We'll need this for SMACC later...  
+ ```
+sudo apt-get update  
+sudo apt-get install lttng-tools  
+sudo apt-get install lttng-modules-dkms  
+sudo apt-get install liblttng-ust-dev  
+ ```
+
 ### Install Nvblox From Debian...
  ```
 sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
@@ -73,13 +83,6 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
 
-### Install LTTng-UST...
- ```
-sudo apt-get install lttng-tools  
-sudo apt-get install lttng-modules-dkms  
-sudo apt-get install liblttng-ust-dev  
- ```
-
 ## Assemble the Workspace
 
 ### Isaac ROS repos...
@@ -96,12 +99,9 @@ git vlone https://github.com/NVIDIA-ISAAC-ROS/isaac_perceptor.git
  ```
 ### Application Repos...  
  ```
+git clone https://github.com/robosoft-ai/SMACC2.git  
 git clone https://github.com/robosoft-ai/sm_isaac_perceptor_1.git  
 git clone https://github.com/robosoft-ai/rrt_exploration.git  
- ```
-### SMACC Repos
- ```
-git clone https://github.com/robosoft-ai/SMACC2.git  
  ```
 
 ## Add key dependencies...
