@@ -171,11 +171,6 @@ These should already be installed but if you just want to make sure..
 
 ## Assemble the Workspace
 
-### Isaac ROS repos...
- ```
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git  
-git clone https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_image_pipeline.git  
- ```
 ### Application Repos...  
  ```
 git clone https://github.com/robosoft-ai/SMACC2.git  
