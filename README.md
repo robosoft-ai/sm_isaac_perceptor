@@ -149,7 +149,11 @@ Then we'll convert the encrypted model (.etlt) to a TensorRT engine plan and dro
 ```
 /opt/nvidia/tao/tao-converter -k sdetr -t fp16 -e ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr/sdetr_grasp.plan -p images,1x3x640x640,2x3x640x640,4x3x640x640 -p orig_target_sizes,1x2,2x2,4x2 ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr/sdetr_grasp.etlt
 ```
-and you'll want this so you can test it later...
+Then get back to the workspace...  
+```
+cd /workspaces/isaac_ros-dev/
+```
+and install this package so you can test your vision pipeline later...  
 ```
 sudo apt-get install -y ros-humble-isaac-ros-examples
 ```
