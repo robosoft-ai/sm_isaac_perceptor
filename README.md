@@ -139,58 +139,7 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
-#### Install isaac_ros_yolov8
- ```
- sudo apt-get install -y ros-humble-isaac-ros-yolov8
- ```
-#### Download the isaac_ros_yolov8 assets
 
-Set variables for isaac_ros_assets workspace folder...
- ```
-NGC_ORG="nvidia"
-NGC_TEAM="isaac"
-NGC_RESOURCE="isaac_ros_assets"
-NGC_VERSION="isaac_ros_yolov8"
-NGC_FILENAME="quickstart.tar.gz"
-
-REQ_URL="https://api.ngc.nvidia.com/v2/resources/$NGC_ORG/$NGC_TEAM/$NGC_RESOURCE/versions/$NGC_VERSION/files/$NGC_FILENAME"
- ```
-Create isaac_ros_assets workspace folder...
- ```
-mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
-    curl -LO --request GET "${REQ_URL}" && \
-    tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
-    rm ${NGC_FILENAME}
- ```
-#### Configure the isaac_ros_yolov8 assets
- Download any model you choose from Ultralytics YOLOv8. Nvidia's examples use YOLOv8s.
- ```
-cd Downloads && \
-   wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt
- ```
-You need to convert the PyTorch model (.pt) to a general ONNX model (.onnx). This ONNX model will be converted to a TensorRT engine file and used with the Isaac ROS TensorRT node for inference. 
-
-First install ultralytics and onnx via pip:
- ```
-pip3 install ultralytics
-pip3 install onnx
- ```
-Then convert the model from a .pt file to a .onnx model using ultralytics.   
-Start a python shell...  
- ```
-python3
- ```
-Then within the shell, export the model:
- ```
->> from ultralytics import YOLO
->> model = YOLO('yolov8s.pt')
->> model.export(format='onnx')
- ```
-Exit the interactive python shell and copy the generated .onnx model into the the isaac_ros_assets folder 
- ```
-mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8
-cp yolov8s.onnx ${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8
- ```
 #### Install isaac_ros_image_pipeline
  ```
  sudo apt-get install -y ros-humble-isaac-ros-depth-image-proc
