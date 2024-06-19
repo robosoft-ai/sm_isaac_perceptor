@@ -139,6 +139,16 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
+Now download the Nvidia SyntheitaDETR...
+ ```
+mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr && \
+cd ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr && \
+   wget 'https://api.ngc.nvidia.com/v2/models/nvidia/isaac/synthetica_detr/versions/1.0.0/files/sdetr_grasp.etlt'
+```
+Then we'll convert the encrypted model (.etlt) to a TensorRT engine plan...
+```
+/opt/nvidia/tao/tao-converter -k sdetr -t fp16 -e ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr/sdetr_grasp.plan -p images,1x3x640x640,2x3x640x640,4x3x640x640 -p orig_target_sizes,1x2,2x2,4x2 ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr/sdetr_grasp.etlt
+```
 
 #### Install isaac_ros_image_pipeline
  ```
