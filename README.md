@@ -168,30 +168,40 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
 cd Downloads && \
    wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt
  ```
-Convert the PyTorch model (.pt) to a general ONNX model (.onnx). Export to ONNX following instructions given below or here. Arguments can be specified for FP16 quantization during this step. This ONNX model is converted to a TensorRT engine file and used with the Isaac ROS TensorRT node for inference. You can use netron to visualize the ONNX model and note input and output names and dimensions.
+You need to convert the PyTorch model (.pt) to a general ONNX model (.onnx). This ONNX model will be converted to a TensorRT engine file and used with the Isaac ROS TensorRT node for inference. 
 
-This can be done by first installing ultralytics and onnx via pip:
+First install ultralytics and onnx via pip:
  ```
 pip3 install ultralytics
 pip3 install onnx
  ```
-Afterwards, convert the model from a .pt file to a .onnx model using ultralytics. This can be done by running:
+Then convert the model from a .pt file to a .onnx model using ultralytics.   
+Start a python shell...  
  ```
 python3
  ```
-Then within python3, export the model:
+Then within the shell, export the model:
  ```
 >> from ultralytics import YOLO
 >> model = YOLO('yolov8s.pt')
 >> model.export(format='onnx')
  ```
-Exit the interactive python shell and copy the generated .onnx model into the designated location for Isaac ROS (${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8):
+Exit the interactive python shell and copy the generated .onnx model into the the isaac_ros_assets folder 
  ```
 mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8
 cp yolov8s.onnx ${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8
  ```
-
-
+#### Install isaac_ros_image_pipeline
+ ```
+ sudo apt-get install -y ros-humble-isaac-ros-depth-image-proc
+ sudo apt-get install -y ros-humble-isaac-ros-gxf-extensions
+ sudo apt-get install -y ros-humble-isaac-ros-image-pipeline
+ ```
+These should already be installed but if you just want to make sure..  
+ ```
+ sudo apt-get install -y ros-humble-isaac-ros-image-proc
+ sudo apt-get install -y ros-humble-isaac-ros-stereo-image-proc
+ ```
 
 ## Assemble the Workspace
 
