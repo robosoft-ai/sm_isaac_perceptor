@@ -87,6 +87,111 @@ ros2 run isaac_ros_ess_models_install install_ess_models.sh
 ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_vanilla.sh
 ros2 run isaac_ros_peoplesemseg_models_install install_peoplesemsegnet_shuffleseg.sh
  ```
+### Install isaac_ros_object_detection and other perception packages from Debian... (optional)
+We'll start with pointcloud_to_laserscan...  
+ ```
+sudo apt-get install -y ros-humble-pointcloud-to-laserscan
+ ```
+#### Install isaac_ros_detectnet
+Then we'll get into isaac_ros_object_detection, starting with detectnet
+ ```
+sudo apt-get install -y ros-humble-isaac-ros-detectnet 
+ ```
+#### Download the isaac_ros_detectnet assets
+
+Set variables for isaac_ros_assets workspace folder...
+ ```
+NGC_ORG="nvidia"
+NGC_TEAM="isaac"
+NGC_RESOURCE="isaac_ros_assets"
+NGC_VERSION="isaac_ros_detectnet"
+NGC_FILENAME="quickstart.tar.gz"
+
+REQ_URL="https://api.ngc.nvidia.com/v2/resources/$NGC_ORG/$NGC_TEAM/$NGC_RESOURCE/versions/$NGC_VERSION/files/$NGC_FILENAME"
+ ```
+Create isaac_ros_assets workspace folder...
+ ```
+mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
+    curl -LO --request GET "${REQ_URL}" && \
+    tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
+    rm ${NGC_FILENAME}
+ ```
+#### Install isaac_ros_rtdetr
+ ```
+sudo apt-get install -y ros-humble-isaac-ros-rtdetr
+ ```
+#### Download the isaac_ros_rtdetr assets
+
+Set variables for isaac_ros_assets workspace folder...
+ ```
+NGC_ORG="nvidia"
+NGC_TEAM="isaac"
+NGC_RESOURCE="isaac_ros_assets"
+NGC_VERSION="isaac_ros_rtdetr"
+NGC_FILENAME="quickstart.tar.gz"
+
+REQ_URL="https://api.ngc.nvidia.com/v2/resources/$NGC_ORG/$NGC_TEAM/$NGC_RESOURCE/versions/$NGC_VERSION/files/$NGC_FILENAME"
+ ```
+Create isaac_ros_assets workspace folder...
+ ```
+mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
+    curl -LO --request GET "${REQ_URL}" && \
+    tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
+    rm ${NGC_FILENAME}
+ ```
+#### Install isaac_ros_yolov8
+ ```
+ sudo apt-get install -y ros-humble-isaac-ros-yolov8
+ ```
+#### Download the isaac_ros_yolov8 assets
+
+Set variables for isaac_ros_assets workspace folder...
+ ```
+NGC_ORG="nvidia"
+NGC_TEAM="isaac"
+NGC_RESOURCE="isaac_ros_assets"
+NGC_VERSION="isaac_ros_yolov8"
+NGC_FILENAME="quickstart.tar.gz"
+
+REQ_URL="https://api.ngc.nvidia.com/v2/resources/$NGC_ORG/$NGC_TEAM/$NGC_RESOURCE/versions/$NGC_VERSION/files/$NGC_FILENAME"
+ ```
+Create isaac_ros_assets workspace folder...
+ ```
+mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
+    curl -LO --request GET "${REQ_URL}" && \
+    tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
+    rm ${NGC_FILENAME}
+ ```
+#### Configure the isaac_ros_yolov8 assets
+ Download any model you choose from Ultralytics YOLOv8. Nvidia's examples use YOLOv8s.
+ ```
+cd Downloads && \
+   wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt
+ ```
+Convert the PyTorch model (.pt) to a general ONNX model (.onnx). Export to ONNX following instructions given below or here. Arguments can be specified for FP16 quantization during this step. This ONNX model is converted to a TensorRT engine file and used with the Isaac ROS TensorRT node for inference. You can use netron to visualize the ONNX model and note input and output names and dimensions.
+
+This can be done by first installing ultralytics and onnx via pip:
+ ```
+pip3 install ultralytics
+pip3 install onnx
+ ```
+Afterwards, convert the model from a .pt file to a .onnx model using ultralytics. This can be done by running:
+ ```
+python3
+ ```
+Then within python3, export the model:
+ ```
+>> from ultralytics import YOLO
+>> model = YOLO('yolov8s.pt')
+>> model.export(format='onnx')
+ ```
+Exit the interactive python shell and copy the generated .onnx model into the designated location for Isaac ROS (${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8):
+ ```
+mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8
+cp yolov8s.onnx ${ISAAC_ROS_WS}/isaac_ros_assets/models/yolov8
+ ```
+
+
 
 ## Assemble the Workspace
 
