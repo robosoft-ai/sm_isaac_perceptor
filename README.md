@@ -29,6 +29,10 @@ First, lets get updated...
 sudo apt-get update  
 rosdep update
  ```
+We'll need curl too to for later when we download assets into the isaac_ros_assets folder...
+ ```
+sudo apt-get install -y curl tar
+ ```
 ### Install LTTng-UST...
 We'll need this for SMACC later...  
  ```
@@ -50,9 +54,7 @@ sudo apt-get install -y ros-humble-isaac-ros-nvblox && \
 rosdep install isaac_ros_nvblox
  ```
 #### Download the nvblox assets
- ```
-sudo apt-get install -y curl tar
- ```
+
 Set variables for isaac_ros_assets workspace folder...
  ```
 NGC_ORG="nvidia"
