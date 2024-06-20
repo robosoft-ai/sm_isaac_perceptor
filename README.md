@@ -139,7 +139,7 @@ mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     tar -xf ${NGC_FILENAME} -C ${ISAAC_ROS_WS}/isaac_ros_assets/${NGC_VERSION} && \
     rm ${NGC_FILENAME}
  ```
-Now download the Nvidia SyntheitaDETR model...
+Now download the Nvidia SyntheitcaDETR model...
  ```
 mkdir -p ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr && \
 cd ${ISAAC_ROS_WS}/isaac_ros_assets/models/synthetica_detr && \
