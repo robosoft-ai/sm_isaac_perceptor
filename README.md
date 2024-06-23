@@ -203,3 +203,22 @@ Reference Application Launch Command...
 ros2 launch nova_carter_bringup navigation.launch.py \
 mode:=simulation run_rviz:=True
  ```
+
+### Experiment
+
+Create a file called .isaac_ros_common-config with the following context:
+ ```
+cd isaac_ros-dev/src/isaac_ros_common/scripts
+echo -e "CONFIG_IMAGE_KEY=ros2_humble.nova_carter\nCONFIG_DOCKER_SEARCH_DIRS=(../../nova_carter/docker ../docker)" > .isaac_ros_common-config
+ ```
+Create a file called .isaac_ros_dev-dockerargs with the following context:
+ ```
+cd isaac_ros-dev/src/isaac_ros_common/scripts && \
+  echo -e "-v /etc/nova/:/etc/nova/\n-v /opt/nvidia/nova/:/opt/nvidia/nova/" > .isaac_ros_dev-dockerargs
+ ```
+
+Clone the dependency repositories using the vcstool file in the nova_carter repository:
+ ```
+cd /workspaces/isaac_ros-dev
+vcs import --recursive src < src/nova_carter/nova_carter.repos
+ ```
