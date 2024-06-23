@@ -208,12 +208,13 @@ mode:=simulation run_rviz:=True
 
 Create a file called .isaac_ros_common-config with the following context:
  ```
-cd isaac_ros-dev/src/isaac_ros_common/scripts
+cd src/isaac_ros_common/scripts
+ ```
+ ```
 echo -e "CONFIG_IMAGE_KEY=ros2_humble.nova_carter\nCONFIG_DOCKER_SEARCH_DIRS=(../../nova_carter/docker ../docker)" > .isaac_ros_common-config
  ```
 Create a file called .isaac_ros_dev-dockerargs with the following context:
  ```
-cd isaac_ros-dev/src/isaac_ros_common/scripts && \
   echo -e "-v /etc/nova/:/etc/nova/\n-v /opt/nvidia/nova/:/opt/nvidia/nova/" > .isaac_ros_dev-dockerargs
  ```
 
