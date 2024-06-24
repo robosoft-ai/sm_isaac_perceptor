@@ -18,7 +18,7 @@ struct StInitialMove
 
   // TRANSITION TABLE
   typedef mpl::list<
-    Transition<EvCbSuccess<CbSleepFor, OrNavigation>, StStartExploration, SUCCESS>
+    Transition<EvCbSuccess<CbSleepFor, OrNavigation>, SS4::SsFPattern1, SUCCESS>
   > reactions;
 
 //   CpTopicPublisher<geometry_msgs::msg::Twist> *pub;
