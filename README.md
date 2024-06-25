@@ -196,8 +196,7 @@ Source the workspace...
 source install/setup.bash
  ```
  ```
-ros2 launch sm_isaac_perceptor_1 navigation.launch.py \
-mode:=simulation run_rviz:=True
+ros2 launch sm_isaac_perceptor_1 sm_isaac_perceptor_1_launch.py 
  ```
 Reference Application Launch Command...
  ```
