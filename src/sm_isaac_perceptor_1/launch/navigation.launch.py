@@ -84,8 +84,6 @@ def generate_launch_description() -> LaunchDescription:
     # A separate container is needed for Nav2 because ROS2 has a race condition for actions when
     # using non-isolated containers.
     # Nav container has to be added last, else Nav2 parameters are not picked up properly.
-    actions.append(lu.component_container('smacc_container', container_type='isolated'))
-    
     actions.append(lu.component_container('navigation_container', container_type='isolated'))
 
     return LaunchDescription(actions)
