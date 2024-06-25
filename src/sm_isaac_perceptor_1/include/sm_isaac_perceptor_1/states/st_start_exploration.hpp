@@ -43,8 +43,8 @@ struct StStartExploration
       // Transition<EvCbSuccess<CbNavigateGlobalPosition, OrNavigation>,
       //            StSetExplorationArea, STARTING_EXPLORATION>
       Transition<EvAllGo<SrAllEventsGo, SrTimeTopic>, StSetExplorationArea,
-                 STARTING_EXPLORATION>,
-      Transition<EvCbFailure<CbNavigateGlobalPosition, OrNavigation>, StRecoveryNav2, ABORT>
+                 STARTING_EXPLORATION>// ,
+      // Transition<EvCbFailure<CbNavigateGlobalPosition, OrNavigation>, StRecoveryNav2, ABORT>
                  
       >
       reactions;
@@ -53,7 +53,7 @@ struct StStartExploration
   static void staticConfigure() {
     // configure_orthogonal<OrPerception, CbRosLaunch2>("sm_isaac_perceptor_1","isaac_ros_apriltag_isaac_sim_pipeline.launch.py",smacc2::client_behaviors::RosLaunchMode::LAUNCH_CLIENT_BEHAVIOR_LIFETIME);
     // configure_orthogonal<OrNavigation, CbRosLaunch2>("sm_isaac_perceptor_1", "slam_launch.py", smacc2::client_behaviors::RosLaunchMode::LAUNCH_DETTACHED);
-    configure_orthogonal<OrAssigner, CbRosLaunch2>("rrt_exploration", "simple.launch.py", smacc2::client_behaviors::RosLaunchMode::LAUNCH_DETTACHED);
+    // configure_orthogonal<OrAssigner, CbRosLaunch2>("rrt_exploration", "simple.launch.py", smacc2::client_behaviors::RosLaunchMode::LAUNCH_DETTACHED);
     
     configure_orthogonal<OrAssigner, CbSleepFor>(10s);
     configure_orthogonal<OrAssigner, CbWaitTopic>("/filtered_points");

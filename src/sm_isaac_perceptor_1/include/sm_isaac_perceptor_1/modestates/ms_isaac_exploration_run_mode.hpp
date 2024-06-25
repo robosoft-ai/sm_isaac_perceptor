@@ -23,7 +23,7 @@ namespace sm_isaac_perceptor_1 {
 // STATE DECLARATION
 class MsIsaacExplorationRunMode
     : public smacc2::SmaccState<MsIsaacExplorationRunMode, SmIsaacPerceptor1,
-                                StAcquireSensors> {
+                                StInitialMove> {
 public:
   using SmaccState::SmaccState;
 
